@@ -59,7 +59,6 @@ var randomize = function(pwLengh, lowerResponse, upperResponse, numberResponse, 
 
 // Get references to the #generate element
 var generatePassword = function(){
-  console.log("Doing something");
   password = "";
   var generateBtn = document.querySelector("#generate");
   var pwLengh = 0;
@@ -67,6 +66,9 @@ var generatePassword = function(){
   while(pwLengh < 8 || pwLengh > 128) {
     pwInput = prompt("How many characters should your password be?(8-128)");
     pwLengh = parseInt(pwInput);
+    if(isNaN(pwLengh)){
+      generatePassword();
+    }
   }
   //check with user what characters the password should have
   console.log(pwLengh);
